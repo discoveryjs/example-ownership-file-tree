@@ -84,21 +84,44 @@ function getProjectOwnership(projectMap, pathRef) {
     return projectMap.get(pathRef);
 }
 
-discovery.setPrepare(function(data) {
-    const { files, ownership } = data;
-    const tree = new FileTree();
-    const ownershipMap = new Map();
+discovery.setPrepare(function(data, setData) {
+    data.forEach(item => {
+        const { files, ownership } = item;
+        const tree = new FileTree();
+        const ownershipMap = new Map();
 
-    ownership.forEach(({ path, owner }) => {
-        ownershipMap.set(getPath(path), { owner: { id: true, name: owner } });
+        ownership.forEach(({ path, owner }) => {
+            ownershipMap.set(getPath(path), { id: true, owner: { name: owner } });
+        });
+
+        files.forEach(path =>
+            tree.add(path).ownership = getProjectOwnership(ownershipMap, getPath(path))
+        );
+
+        discovery.query('..children.[no ownership]', tree.get('.'))
+            .forEach(leaf => leaf.ownership = getProjectOwnership(ownershipMap, leaf.path));
+
+        item.tree = tree;
     });
 
-    files.forEach(path =>
-        tree.add(path).ownership = getProjectOwnership(ownershipMap, getPath(path))
+    const projectIndex = data.reduce(
+        (map, item) => map
+            .set(item, item)
+            .set(item.project, item),
+        new Map()
     );
+    discovery.addEntityResolver(value => {
+        if (value) {
+            value = projectIndex.get(value) || projectIndex.get(value.project);
+        }
 
-    discovery.query('..children.[no ownership]', tree.get('.'))
-        .forEach(leaf => leaf.ownership = getProjectOwnership(ownershipMap, leaf.path));
-
-    data.tree = tree;
+        if (value) {
+            return {
+                type: 'project',
+                id: value.project,
+                name: value.project,
+                entity: value
+            };
+        }
+    });
 });

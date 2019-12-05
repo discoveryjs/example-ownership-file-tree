@@ -9,9 +9,12 @@ module.exports = {
         },
         assets: [
             'page/default.js',
-            'page/default.css',
+            'page/project.js',
+            'page/project.css',
             'view/owner.js',
-            'view/owner.css'
+            'view/owner.css',
+            'sidebar.js',
+            'sidebar.css'
         ]
     }
 };

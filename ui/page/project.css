@@ -1,0 +1,38 @@
+.page-project .tab-toolbar {
+    font-size: 16px;
+    padding: 5px 0;
+}
+.page-project .breadcrums .view-list-item::after {
+    content: "/";
+    display: inline-block;
+    padding: 0 3px;
+    color: #888;
+}
+
+.page-project .view-tree .view-tree-leaf {
+    white-space: nowrap;
+}
+.page-project .view-tree .view-link:not(:hover) {
+    color: #666;
+    text-decoration-color: #ccc;
+}
+.page-project .view-tree .dir-file-count {
+    display: inline-block;
+    color: #aaa;
+    font-size: 11px;
+}
+.page-project .view-tree .dir-file-count .bad {
+    display: inline;
+    color: #a66;
+    font-size: 11px;
+}
+.page-project .view-tree .dir-file-count .view-comma-list:not(:empty)::before,
+.page-project .view-tree .dir-file-count .bad::before {
+    content: '|';
+    padding: 0 4px;
+    color: #eee;
+}
+.page-project .view-tree .unowned-file {
+    display: inline;
+    color: #a66;
+}
