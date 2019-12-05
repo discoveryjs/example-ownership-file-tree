@@ -1,0 +1,23 @@
+{
+    "project": "my-cool-project",
+    "files": [
+        "foo/asd/asdsd.js",
+        "foo/asd/asdsd.css",
+        "bar/asdasda/zxczx.ts",
+        "bar/asdasda/zxczx.css"
+    ],
+    "ownership": [
+        {
+            "path": "foo",
+            "owner": "Foo"
+        },
+        {
+            "path": "foo/asd/asdsd.css",
+            "owner": "Baz"
+        },
+        {
+            "path": "bar/asdasda/zxczx.ts",
+            "owner": "AAA"
+        }
+    ]
+}

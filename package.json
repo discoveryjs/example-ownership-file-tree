@@ -1,0 +1,16 @@
+{
+  "name": "discovery-ownership-filetree",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "discovery",
+    "build": "discovery-build --single-file"
+  },
+  "keywords": [],
+  "author": "Roman Dvornov",
+  "license": "MIT",
+  "dependencies": {
+    "@discoveryjs/cli": "^1.2.0",
+    "@discoveryjs/discovery": "^1.0.0-beta.21",
+    "node-fetch": "^2.6.0"
+  }
+}

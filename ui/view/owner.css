@@ -1,0 +1,12 @@
+.view-owner {
+    display: inline-block;
+    position: relative;
+    margin-left: 1ex;
+}
+.view-owner.inherited {
+    opacity: .4;
+}
+.view-owner .view-badge:empty::before {
+    color: #aaa;
+    content: '?';
+}
