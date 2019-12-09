@@ -31,7 +31,8 @@ discovery.page.define('project', {
                     data: '(root.path.name ? [{ name: project or "repository", path: "" }] : []) + root.path..parent.reverse().[name]',
                     item: 'link:{ text: name, href: #.id.pageLink(#.page, { path }) }'
                 },
-                'text:root.path.name or project or "repository"'
+                'text:root.path.name or project or "repository"',
+                'owner:root'
             ]
         },
         {
@@ -47,7 +48,7 @@ discovery.page.define('project', {
                     view: 'switch',
                     content: [
                         { when: 'children', content: 'link:path.({ text: name, href: #.id.pageLink(#.page, { path }) })' },
-                        { when: 'no ownership.owner.id', content: {
+                        { when: 'no ownership.owner', content: {
                             view: 'block',
                             className: 'unowned-file',
                             content: 'text:path.name'
@@ -79,7 +80,7 @@ discovery.page.define('project', {
                         },
                         {
                             view: 'comma-list',
-                            data: 'files.ownership.owner.[$.id != @.ownership.owner.id].name'
+                            data: 'files.ownership.owner.name.[$ != @.ownership.owner.name]'
                         }
                     ]
                 }

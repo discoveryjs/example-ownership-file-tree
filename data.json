@@ -41,6 +41,10 @@
                 "owner": "Nested owner"
             },
             {
+                "path": "ui/view/owner.ts",
+                "owner": "TypeScript supervisor"
+            },
+            {
                 "path": "ui",
                 "owner": "Mega owner"
             },

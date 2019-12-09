@@ -2,6 +2,10 @@
     font-size: 16px;
     padding: 5px 0;
 }
+.page-project .tab-toolbar .view-owner {
+    font-size: 12px;
+    vertical-align: text-bottom;
+}
 .page-project .breadcrums .view-list-item::after {
     content: "/";
     display: inline-block;
@@ -16,18 +20,18 @@
     color: #666;
     text-decoration-color: #ccc;
 }
-.page-project .view-tree .dir-file-count {
+.page-project .dir-file-count {
     display: inline-block;
     color: #aaa;
     font-size: 11px;
 }
-.page-project .view-tree .dir-file-count .bad {
+.page-project .dir-file-count .bad {
     display: inline;
     color: #a66;
     font-size: 11px;
 }
-.page-project .view-tree .dir-file-count .view-comma-list:not(:empty)::before,
-.page-project .view-tree .dir-file-count .bad::before {
+.page-project .dir-file-count .view-comma-list:not(:empty)::before,
+.page-project .dir-file-count .bad::before {
     content: '|';
     padding: 0 4px;
     color: #eee;
