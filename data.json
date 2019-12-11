@@ -9,6 +9,10 @@
         ],
         "ownership": [
             {
+                "path": "",
+                "owner": "Boss"
+            },
+            {
                 "path": "foo",
                 "owner": "Foo"
             },

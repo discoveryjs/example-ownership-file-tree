@@ -84,17 +84,17 @@ function getProjectOwnership(projectMap, pathRef) {
     return projectMap.get(pathRef);
 }
 
-discovery.setPrepare(function(data, setData) {
+discovery.setPrepare(function(data) {
     data.forEach(item => {
         const { files, ownership } = item;
         const tree = new FileTree();
         const ownershipMap = new Map();
 
-        ownership.forEach(({ path, owner }) => {
-            ownershipMap.set(getPath(path), { id: true, owner: { name: owner } });
-        });
+        ownership.forEach(({ path, owner }) =>
+            ownershipMap.set(getPath(path), { id: true, owner: { name: owner } })
+        );
 
-        files.forEach(path =>
+        ['', ...files].forEach(path =>
             tree.add(path).ownership = getProjectOwnership(ownershipMap, getPath(path))
         );
 
